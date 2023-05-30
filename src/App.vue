@@ -31,7 +31,7 @@ export default {
 </script>
 
 <template>
-  <ProjectCard></ProjectCard>
+  <ProjectCard :projects="projects"></ProjectCard>
 </template>
 
 <style scoped lang="scss">

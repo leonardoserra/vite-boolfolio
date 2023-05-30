@@ -8,6 +8,9 @@ export default {
     },
     props: {
         projects: Array
+    },
+    mounted() {
+        console.log(this.projects);
     }
 }
 </script>
@@ -19,15 +22,10 @@ export default {
 
     <div class="card-container">
 
-        <div class="card">
-            ciao
+        <div v-for="(project, index) in this.projects" :key="index" class="card">
+            {{ project.title }}
         </div>
-        <div class="card">
-            ciao
-        </div>
-        <div class="card">
-            ciao
-        </div>
+
 
     </div>
 </template>
