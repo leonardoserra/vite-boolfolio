@@ -4,24 +4,29 @@ import axios from 'axios';
 export default {
   data() {
     return {
-      baseURL: 'http://127.0.0.1:8000'
+      baseURL: 'http://127.0.0.1:8000',
+      projects: null
     }
   },
   components: {
     ProjectCard
   },
   methods: {
-    getProjects() {
+    getProjects(dataToFill) {
       axios.get(`${this.baseURL}/api/projects`)
-        .then(response =>
-          console.log(response.data.results)
+        .then(function (response) {
+          console.log(response.data.results);
+          dataToFill = response.data.results;
+          console.log(dataToFill);
+
+        }
         )
 
     }
   },
   mounted() {
-    this.getProjects();
-  }
+    this.getProjects(this.projects);
+  },
 }
 </script>
 
