@@ -12,12 +12,12 @@ export default {
     ProjectCard
   },
   methods: {
-    getProjects(dataToFill) {
+    getProjects() {
       axios.get(`${this.baseURL}/api/projects`)
         .then(response => {
           console.log(response.data.results);
-          dataToFill = response.data.results;
-          console.log(dataToFill);
+          this.projects = response.data.results;
+          console.log(this.projects);
 
         }
         )
@@ -25,7 +25,9 @@ export default {
     }
   },
   mounted() {
-    this.getProjects(this.projects);
+    this.getProjects();
+    // console.log(this.projects);
+
   },
 }
 </script>
@@ -33,7 +35,7 @@ export default {
 <template>
   <div class="card-container">
 
-    <div v-for="(project, index) in projects" :key="index" class="card">
+    <div v-for="(project, index) in projects" :key="index">
       <ProjectCard :title="project.title" :imageSrc="project.image_src" :description="project.description"
         :technologies="project.technologies" :type="project.type?.type_name"></ProjectCard>
     </div>

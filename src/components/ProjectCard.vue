@@ -14,18 +14,28 @@ export default {
         type: String
     },
     mounted() {
-        console.log(this.projects);
+        console.log(this.title);
     }
 }
 </script>
 
 <template>
-    <ul>
+    {{ messaggioProva }}
+    <ul class="card">
         <li>{{ title }}</li>
-        <li>{{ imageSrc }}</li>
-        <li>{{ description }}</li>
-        <li v-for="technology in technologies">
-            <div>{{ technology.name }}</div>
+        <li><img :src="imageSrc" /> </li>
+        <li> Descrizione:
+            <p>
+                {{ description }}
+            </p>
+        </li>
+        <li> Tecnologie
+            <ul class="technologies-list">
+                <li v-for="technology in technologies">
+                    <div>{{ technology.name }}</div>
+                </li>
+
+            </ul>
         </li>
         <li>{{ type }}</li>
     </ul>
@@ -42,14 +52,18 @@ export default {
 //     flex-wrap: wrap;
 
 
-//     .card {
-//         margin: 10px;
-//         width: calc(33.3333333333% - 54px);
-//         border: 2px solid rgb(253, 66, 66);
-//         border-radius: 12px;
-//         padding: 15px;
-//         box-shadow: 3px 3px rgb(253, 66, 66);
-//     }
+.card {
+    margin: 10px;
+    width: calc(33.3333333333% - 54px);
+    border: 2px solid rgb(253, 66, 66);
+    border-radius: 12px;
+    padding: 15px;
+    box-shadow: 3px 3px rgb(253, 66, 66);
+
+    .technologies-list {
+        list-style: square;
+    }
+}
 
 // }
 </style>
