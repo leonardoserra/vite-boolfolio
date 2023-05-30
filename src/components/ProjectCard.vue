@@ -27,18 +27,18 @@ export default {
             <p class="card-text">Descrizione: {{ description }}</p>
             <div class="row">
                 <div class="col">
-                    Tecnologie: <ul class="list-group-flush">
+                    Tecnologie: <ul v-if="technologies.length >= 1" class="card-text list-group-flush">
                         <li v-for="technology in technologies" class="list-group-item">
                             {{ technology.name }}
                         </li>
-
                     </ul>
+                    <span class="card-text" v-else>Nessuna Tecnologia usata</span>
                 </div>
             </div>
-            <div v-if="type">
+            <div class="card-text" v-if="type">
                 Tipologia: {{ type }}
             </div>
-            <div v-else>Tipologia: Nessuna tipologia assegnata</div>
+            <div class="card-text" v-else>Tipologia: Nessuna tipologia assegnata</div>
         </div>
     </div>
 </template>
