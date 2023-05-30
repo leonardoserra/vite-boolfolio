@@ -20,50 +20,27 @@ export default {
 </script>
 
 <template>
-    {{ messaggioProva }}
-    <ul class="card">
-        <li>{{ title }}</li>
-        <li><img :src="imageSrc" /> </li>
-        <li> Descrizione:
-            <p>
-                {{ description }}
-            </p>
-        </li>
-        <li> Tecnologie
-            <ul class="technologies-list">
-                <li v-for="technology in technologies">
-                    <div>{{ technology.name }}</div>
-                </li>
+    <div class="card">
+        <img :src="imageSrc" class="card-img-top img-thumbnail" :alt="title">
+        <div class="card-body">
+            <h5 class="card-title">TITOLO: {{ title }}</h5>
+            <p class="card-text">DESCRIZIONE: {{ description }}</p>
+            <div class="row">
+                <div class="col">
+                    TECNOLOGIE: <ul class="list-group-flush">
+                        <li v-for="technology in technologies" class="list-group-item">{{ technology.name }}
+                        </li>
 
-            </ul>
-        </li>
-        <li>{{ type }}</li>
-    </ul>
+                    </ul>
+                </div>
+            </div>
+            <div>
+                TIPOLOGIA: {{ type }}
+            </div>
+        </div>
+    </div>
 </template>
 
 <style scoped lang="scss">
 @import '../styles/general.scss';
-
-// .card-container {
-//     width: 1200px;
-//     margin: auto;
-//     display: flex;
-//     justify-content: center;
-//     flex-wrap: wrap;
-
-
-.card {
-    margin: 10px;
-    width: calc(33.3333333333% - 54px);
-    border: 2px solid rgb(253, 66, 66);
-    border-radius: 12px;
-    padding: 15px;
-    box-shadow: 3px 3px rgb(253, 66, 66);
-
-    .technologies-list {
-        list-style: square;
-    }
-}
-
-// }
 </style>
