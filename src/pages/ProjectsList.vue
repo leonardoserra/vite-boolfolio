@@ -4,6 +4,7 @@ import axios from 'axios';
 import { store } from '../store';
 
 export default {
+    name: 'ProjectsList',
     data() {
         return {
             store,
@@ -19,7 +20,7 @@ export default {
                 .then(response => {
                     console.log(response.data.results);
                     this.projects = response.data.results;
-                    console.log(this.projects);
+                    console.log('da axios' + ' ' + this.projects);
 
                 }
                 )
@@ -27,6 +28,8 @@ export default {
         },
         mounted() {
             this.getProjects();
+            console.log('dal mounted' + ' ' + this.projects);
+
         }
     }
 }

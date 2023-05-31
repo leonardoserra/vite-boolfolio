@@ -3,4 +3,4 @@ import { router } from './router';
 import './styles/general.scss';
 import App from './App.vue';
 import "bootstrap";
-createApp(App).use(router).mount('#app');
+createApp(App).use(router).mount('#app')
