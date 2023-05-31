@@ -7,36 +7,32 @@ export default {
         }
     },
     props: {
-        title: String,
-        imageSrc: String,
-        description: String,
-        technologies: Array,
-        type: String
+        projects: Array
     },
     mounted() {
-        console.log(this.title);
+        console.log(this.array);
     }
 }
 </script>
 
 <template>
-    <div class="card m-4">
-        <img :src="imageSrc" class="card-img-top img-thumbnail" :alt="title">
+    <div class="card m-4" v-for="(project, index) in projects" :key="index">
+        <img :src="project.imageSrc" class="card-img-top img-thumbnail" :alt="project.title">
         <div class="card-body">
-            <h5 class="card-title">Titolo: {{ title }}</h5>
-            <p class="card-text">Descrizione: {{ description }}</p>
+            <h5 class="card-title">Titolo: {{ project.title }}</h5>
+            <p class="card-text">Descrizione: {{ project.description }}</p>
             <div class="row">
                 <div class="col">
-                    Tecnologie: <ul v-if="technologies.length >= 1" class="card-text list-group-flush">
-                        <li v-for="technology in technologies" class="list-group-item">
+                    Tecnologie: <ul v-if="project.technologies.length >= 1" class="card-text list-group-flush">
+                        <li v-for="technology in project.technologies" class="list-group-item">
                             {{ technology.name }}
                         </li>
                     </ul>
                     <span class="card-text" v-else>Nessuna Tecnologia usata</span>
                 </div>
             </div>
-            <div class="card-text" v-if="type">
-                Tipologia: {{ type }}
+            <div class="card-text" v-if="project.type">
+                Tipologia: {{ project.type }}
             </div>
             <div class="card-text" v-else>Tipologia: Nessuna tipologia assegnata</div>
         </div>
