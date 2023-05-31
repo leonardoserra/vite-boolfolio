@@ -8,8 +8,14 @@ export default {
 </script>
 
 <template>
-  <AppHeader></AppHeader>
-  <router-view></router-view>
+  <div class="container">
+    <div class="row">
+
+      <AppHeader></AppHeader>
+      <router-view></router-view>
+
+    </div>
+  </div>
 </template>
 
 <style scoped lang="scss">

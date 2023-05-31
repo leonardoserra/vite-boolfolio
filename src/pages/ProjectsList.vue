@@ -36,7 +36,9 @@ export default {
 </script>
 
 <template>
-    <ProjectCard :projects="projects"></ProjectCard>
+    <div class="col-3">
+        <ProjectCard :projects="projects"></ProjectCard>
+    </div>
 </template>
 
 <style lang="scss" >
