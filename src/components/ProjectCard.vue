@@ -16,7 +16,7 @@ export default {
 </script>
 
 <template>
-    <div class="card m-4 " v-for="(project, index) in projects" :key="index">
+    <div class="card m-4 col-3 " v-for="(project, index) in projects" :key="index">
         <img :src="project.image_src" class="card-img-top img-thumbnail" :alt="project.title">
         <div class="card-body">
             <h5 class="card-title">Titolo: {{ project.title }}</h5>
