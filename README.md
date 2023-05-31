@@ -1,7 +1,9 @@
-# Vue 3 + Vite
-
-This template should help get you started developing with Vue 3 in Vite. The template uses Vue 3 `<script setup>` SFCs, check out the [script setup docs](https://v3.vuejs.org/api/sfc-script-setup.html#sfc-script-setup) to learn more.
-
-## Recommended IDE Setup
-
-- [VS Code](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur) + [TypeScript Vue Plugin (Volar)](https://marketplace.visualstudio.com/items?itemName=Vue.vscode-typescript-vue-plugin).
+Ciao ragazzi, continuiamo a lavorare sul codice dei giorni scorsi nelle stesse repo di ieri, rifacendo quanto visto in classe stamani.  
+  
+1. *nome repo per il back: laravel-api (stessa di ieri)*  
+- Aggiungiamo al nostro progetto Laravel una nuovo rotta API per la gestione della show di un post specifico.  
+  
+2. *nome repo per il back: vite-boolfolio (stessa di ieri)*  
+- Aggiungere vue-router al progetto Vue, in modo da creare alcune pagine “statiche” come Home, Contact, About… ed una pagina per mostrare la lista dei nostri progetti.  
+  
+3. Aggiungere anche una rotta dinamica che consenta di mostrare i dettagli del singolo progetto, stilizzando la pagina a piacere.
