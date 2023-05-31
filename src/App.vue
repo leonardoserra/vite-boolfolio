@@ -2,22 +2,14 @@
 import AppHeader from './components/AppHeader.vue';
 export default {
   components: {
-
     AppHeader,
-
   },
 }
 </script>
 
 <template>
-  <div class="container">
-    <div class="row">
-      <AppHeader></AppHeader>
-      <router-view></router-view>
-    </div>
-
-
-  </div>
+  <AppHeader></AppHeader>
+  <router-view></router-view>
 </template>
 
 <style scoped lang="scss">

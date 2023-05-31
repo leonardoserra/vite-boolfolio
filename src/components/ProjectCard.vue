@@ -10,7 +10,7 @@ export default {
         projects: Array
     },
     mounted() {
-        console.log(this.array);
+        console.log(this.projects);
     }
 }
 </script>
