@@ -1,7 +1,7 @@
 <script>
 import ProjectCard from '../components/ProjectCard.vue';
 import axios from 'axios';
-import { store } from '../store';
+import { store } from '../store.js';
 
 export default {
     name: 'ProjectsList',
@@ -18,31 +18,27 @@ export default {
         getProjects() {
             axios.get(`${this.store.baseURL}/api/projects`)
                 .then(response => {
-                    console.log(response.data.results);
+                    // console.log(response.data.results);
                     this.projects = response.data.results;
-                    console.log(this.projects);
+                    // console.log(this.projects);
 
                 }
                 )
 
         },
-        mounted() {
-            this.getProjects();
 
-        }
+    },
+    mounted() {
+        this.getProjects();
     }
 }
 
 </script>
 
 <template>
-    <div class="container">
-        <div class="row">
-            <div class="col-4">
-                <ProjectCard :projects="projects"></ProjectCard>
-            </div>
-        </div>
-    </div>
+    <ProjectCard :projects="projects"></ProjectCard>
 </template>
 
-<style lang="scss" scoped></style>
+<style lang="scss" >
+@import '../styles/general.scss';
+</style>
