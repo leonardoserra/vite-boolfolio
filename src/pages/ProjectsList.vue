@@ -1,13 +1,13 @@
 <script>
 import ProjectCard from '../components/ProjectCard.vue';
 import axios from 'axios';
-import store from './store.js';
+import { store } from '../store';
 
 export default {
     data() {
         return {
             store,
-            projects: []
+            projects: [],
         }
     },
     components: {
@@ -37,4 +37,4 @@ export default {
     <ProjectCard :projects="projects"></ProjectCard>
 </template>
 
-<style></style>
+<style lang="scss" scoped></style>
