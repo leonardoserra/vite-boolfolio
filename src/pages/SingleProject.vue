@@ -7,7 +7,7 @@ export default {
     data() {
         return {
             store,
-            singleProject: []
+            singleProject: null
 
         }
     },
@@ -18,9 +18,9 @@ export default {
 
         axios.get(`${this.store.baseURL}/api/project/${slug}`)
             .then(response => {
-                if (response) {
-                    this.singleProject = response.data.results;
-                    console.log(this.singleProject);
+                if (response.data.success) {
+                    console.log(response.data.project);
+                    this.singleProject = response.data.project;
                 } else {
                     this.$router.push({ name: 'not-found' });
                 }
@@ -32,7 +32,7 @@ export default {
 </script>
 
 <template>
-    <div class="card col-6 mt-5">
+    <div v-if="singleProject" class="card col-6 mt-5">
         <img :src="singleProject.image_src" class="card-img-top" :alt="singleProject.title">
         <div class="card-body">
             <h5 class="card-title">{{ singleProject.title }}</h5>
