@@ -18,8 +18,12 @@ export default {
 
         axios.get(`${this.store.baseURL}/api/project/${slug}`)
             .then(response => {
-                this.singleProject = response.data.results;
-                console.log(this.singleProject);
+                if (response) {
+                    this.singleProject = response.data.results;
+                    console.log(this.singleProject);
+                } else {
+                    this.$router.push({ name: 'not-found' });
+                }
             });
 
     }
