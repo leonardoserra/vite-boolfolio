@@ -34,6 +34,9 @@ export default {
                     this.success = true;
                 }
                 this.sending = false;
+            }).catch(error => {
+                this.sending = false;
+
             })
         }
     }
@@ -62,8 +65,9 @@ export default {
 
         </div>
 
-        <button :disabled="sending" type="submit" class="btn btn-primary">{{ sending ? 'Invio in corso...' : 'Invia Contatto'
-        }}</button>
+        <button :disabled="sending" type="submit" class="btn btn-primary">
+            {{ sending ? 'Invio in corso...' : 'Invia Contatto' }}
+        </button>
     </form>
 </template>
 
