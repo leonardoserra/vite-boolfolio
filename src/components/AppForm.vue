@@ -10,14 +10,15 @@ export default {
             name: '',
             email: '',
             message: '',
-            success: false
+            success: false,
+            sending: false
         }
     },
     methods: {
         sendForm() {
 
             this.success = false;
-
+            this.sending = true;
             axios.post(`${this.store.baseURL}/api/contacts`,
                 {
                     name: this.name,
@@ -32,6 +33,7 @@ export default {
                     this.message = '';
                     this.success = true;
                 }
+                this.sending = false;
             })
         }
     }
@@ -60,7 +62,8 @@ export default {
 
         </div>
 
-        <button type="submit" class="btn btn-primary">Submit</button>
+        <button :disabled="sending" type="submit" class="btn btn-primary">{{ sending ? 'Invio in corso...' : 'Invia Contatto'
+        }}</button>
     </form>
 </template>
 
