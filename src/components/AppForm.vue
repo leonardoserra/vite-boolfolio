@@ -1,18 +1,48 @@
 <script>
+import axios from 'axios';
+import { store } from '../store';
+
 export default {
     name: 'AppForm',
     data() {
         return {
+            store,
             name: '',
             email: '',
-            message: ''
+            message: '',
+            success: false
+        }
+    },
+    methods: {
+        sendForm() {
+
+            this.success = false;
+
+            axios.post(`${this.store.baseURL}/api/contacts`,
+                {
+                    name: this.name,
+                    email: this.email,
+                    message: this.message
+                }
+            ).then(response => {
+                console.log(response);
+                if (response.data.success) {
+                    this.name = '';
+                    this.email = '';
+                    this.message = '';
+                    this.success = true;
+                }
+            })
         }
     }
 }
 </script>
 
 <template>
-    <form class="col">
+    <div v-if="success" class="alert alert-success" role="alert">
+        Messaggio inviato con successo!
+    </div>
+    <form @submit.prevent="sendForm()" class="col">
         <div class="mb-3">
             <label for="name" class="form-label">Inserisci in tuo nome</label>
             <input type="text" class="form-control" id="name" v-model="name">
